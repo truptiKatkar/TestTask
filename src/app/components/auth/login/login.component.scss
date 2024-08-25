@@ -1,0 +1,36 @@
+.container-fluid {
+  height: 100vh;
+}
+.image-container {
+  height: 500px;
+  width: 500px;
+  object-fit: contain;
+}
+
+.common-container {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.selected-icon-container {
+  background: #039be5;
+  color: #fff;
+}
+
+.icon-container {
+  background: transparent;
+  color: gray;
+  border: 1px solid gray;
+}
+
+:host ::ng-deep .mat-icon {
+  height: 40px;
+  width: 40px;
+  font-size: 40px;
+  font-weight: 500;
+}

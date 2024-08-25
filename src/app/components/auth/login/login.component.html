@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <div class="row h-100">
+    <div class="col-6">
+      <div class="row h-100 align-items-center">
+        <div class="col-8 mx-auto">
+          <div class="card border-0">
+            <div class="card-body">
+              <h6 class="text-center text-gray">I am</h6>
+              <div
+                class="d-flex align-items-center justify-content-center mb-3"
+              >
+                <div
+                  [ngClass]="
+                    role === 'admin'
+                      ? 'selected-icon-container'
+                      : 'icon-container'
+                  "
+                  class="common-container me-3 pointer"
+                  (click)="role = 'admin'"
+                >
+                  <mat-icon>person_outline</mat-icon>
+                  <small class="fw-bold"> Admin</small>
+                </div>
+                <div
+                  [ngClass]="
+                    role === 'user'
+                      ? 'selected-icon-container'
+                      : 'icon-container'
+                  "
+                  class="common-container me-3 pointer"
+                  (click)="role = 'user'"
+                >
+                  <mat-icon>person_outline</mat-icon>
+                  <small class="fw-bold"> User</small>
+                </div>
+                <div
+                  [ngClass]="
+                    role === 'super-user'
+                      ? 'selected-icon-container'
+                      : 'icon-container'
+                  "
+                  class="common-container pointer"
+                  (click)="role = 'super-user'"
+                >
+                  <mat-icon>person_outline</mat-icon>
+                  <small class="fw-bold"> SuperUser</small>
+                </div>
+              </div>
+
+              <form [formGroup]="loginForm">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email: </label>
+                  <input
+                    [class.is-invalid]="
+                      loginForm.get('email')?.invalid &&
+                      loginForm.get('email')?.touched
+                    "
+                    type="email"
+                    formControlName="email"
+                    class="form-control"
+                    placeholder="Enter email"
+                    id="email"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password:</label>
+                  <input
+                    [class.is-invalid]="
+                      loginForm.get('password')?.invalid &&
+                      loginForm.get('password')?.touched
+                    "
+                    type="password"
+                    formControlName="password"
+                    class="form-control"
+                    placeholder="Enter password"
+                    id="password"
+                  />
+                </div>
+              </form>
+
+              @if (error !=='') {
+              <p class="text-danger">{{ error }}</p>
+              }
+
+              <div class="text-center mt-5">
+                <button
+                  type="submit"
+                  class="btn btn-primary px-5 py-2 rounded-4 fw-semibold"
+                  (click)="handleLogin()"
+                >
+                  Log in
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 bg-primary text-white text-center">
+      <div class="h-100 d-flex flex-column justify-content-around">
+        <h1>Start managing now</h1>
+        <div class="image-container mx-auto">
+          <img class="h-100 w-100" src="login.png" alt="login/" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

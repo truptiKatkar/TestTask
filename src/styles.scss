@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+.bg-primary {
+  background: #039be5 !important;
+}
+
+.text-gray {
+  color: gray;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,132 @@
+<div class="container h-100">
+  <div class="row align-items-center justify-content-center h-100 w-100">
+    <mat-card appearance="outlined" class="p-2 shadow">
+      <mat-card-header>
+        <mat-card-title>Add New User</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-stepper [linear]="false" #stepper>
+          <mat-step [stepControl]="personalDetalsFormGroup">
+            <form [formGroup]="personalDetalsFormGroup">
+              <ng-template matStepLabel>Personal Details</ng-template>
+              <div class="row">
+                <div class="col-4">
+                  <mat-form-field class="w-100">
+                    <mat-label>Name</mat-label>
+                    <input
+                      matInput
+                      placeholder="Last name, First name"
+                      formControlName="password"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-4">
+                  <mat-form-field class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input
+                      matInput
+                      placeholder="Email"
+                      formControlName="email"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="personalDetalsFormGroup">
+            <form [formGroup]="personalDetalsFormGroup">
+              <ng-template matStepLabel>Personal Details</ng-template>
+              <div class="row">
+                <div class="col-4">
+                  <mat-form-field class="w-100">
+                    <mat-label>Password</mat-label>
+                    <input
+                      matInput
+                      placeholder="Password"
+                      formControlName="firstCtrl"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-4">
+                  <mat-form-field class="w-100">
+                    <mat-label>Select Role</mat-label>
+                    <mat-select formControlName="role">
+                      <mat-option value="user">User</mat-option>
+                      <mat-option value="super-user">Super User</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="addressFormGroup" label="Address Detail">
+            <form [formGroup]="addressFormGroup">
+              <div class="row">
+                <div class="col-4">
+                  <mat-form-field class="w-100">
+                    <mat-label>Address</mat-label>
+                    <input
+                      matInput
+                      formControlName="address"
+                      placeholder="Flat No. Street"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-4">
+                  <mat-form-field class="w-100">
+                    <mat-label>City</mat-label>
+                    <input
+                      matInput
+                      formControlName="city"
+                      placeholder="Kolhapur"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+                <div class="col-4">
+                  <mat-form-field class="w-100">
+                    <mat-label>State</mat-label>
+                    <input
+                      matInput
+                      formControlName="state"
+                      placeholder="Maharashtra"
+                      required
+                    />
+                  </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext (click)="handleSubmit()">Next</button>
+              </div>
+            </form>//
+          </mat-step>
+          <mat-step>
+            <ng-template matStepLabel>Done</ng-template>
+            <div
+              class="success-circle d-flex align-items-center justify-content-center mb-4"
+            >
+              <p class="mb-0 text-success fw-semibold text-center">
+                Submitted Successfully!!
+              </p>
+            </div>
+            <div>
+              <button mat-button (click)="stepper.reset()">Back</button>
+            </div>
+          </mat-step>
+        </mat-stepper>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
